@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+ 
+<script>
+ 
+var c=document.getElementById("myCanvas");
+ 
+var ctx = c.getContext('2d');
+var x = 100,
+    y = 100,
+    width = 200,
+    height = 150,
+    angle = 90*Math.PI/180,
+    rectCenterPoint = {x: x+width/2, y: y+height/2}; // 矩形中心点
+ 
+// 旋转前(红色矩形)
+ctx.fillStyle = '#f00';
+ctx.fillRect(x, y, width, height);
+ 
+// 旋转后(绿色矩形)
+ctx.translate(rectCenterPoint.x, rectCenterPoint.y);
+ctx.fillStyle = '#690';
+ctx.fillRect(x, y, width, height);
+ctx.rotate(angle);
+ctx.translate(-rectCenterPoint.x, -rectCenterPoint.y);
+
+</script>
+ 
+ 
+ 
+</body>
+
